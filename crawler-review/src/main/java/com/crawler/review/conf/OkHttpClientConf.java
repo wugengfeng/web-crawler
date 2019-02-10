@@ -2,7 +2,7 @@ package com.crawler.review.conf;
 
 import com.crawler.framework.proxy.manager.FreeProxy;
 import com.crawler.framework.proxy.selector.BasisProxySelector;
-import com.crawler.framework.proxy.selector.RedisProxySelector;
+import com.crawler.framework.proxy.selector.BlockingQueueProxySelector;
 import okhttp3.OkHttpClient;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class OkHttpClientConf {
         return proxySelector;
     }*/
 
-    /*@Bean(name = "freeProxySelector")
+    @Bean(name = "freeProxySelector")
     public BasisProxySelector freeProxySelector() {
         System.out.println("================  免费代理  ================");
         FreeProxy freeProxy = new FreeProxy();
@@ -44,33 +44,33 @@ public class OkHttpClientConf {
 
         BasisProxySelector proxySelector = new BlockingQueueProxySelector(proxySet);
         return proxySelector;
-    }*/
+    }
 
-    @Bean(name = "redisProxySelector")
+    /*@Bean(name = "redisProxySelector")
     public BasisProxySelector redisProxySelector() {
         FreeProxy freeProxy = new FreeProxy();
         Set<Proxy> proxySet = freeProxy.getProxy();
         BasisProxySelector selector = new RedisProxySelector(redisTemplate, proxySet,null);
         return selector;
-    }
+    }*/
 
     @Bean(name = "reviewClient")
-    public OkHttpClient reviewClient() {
+    public OkHttpClient reviewClient(BasisProxySelector freeProxySelector) {
         OkHttpClient.Builder reviewClientBuilder = new OkHttpClient.Builder();
 
-       /* if (CollectionUtils.isNotEmpty(freeProxySelector.getProxyList())) {
+        if (CollectionUtils.isNotEmpty(freeProxySelector.getProxyList())) {
             reviewClientBuilder.proxySelector(freeProxySelector);
-        }*/
+        }
 
         return reviewClientBuilder.build();
     }
 
     @Bean(name = "feedBackClient")
-    public OkHttpClient feedBackClient(BasisProxySelector redisProxySelector) {
+    public OkHttpClient feedBackClient(BasisProxySelector freeProxySelector) {
         OkHttpClient.Builder feedBackClientBuilder = new OkHttpClient.Builder();
 
-        if (CollectionUtils.isNotEmpty(redisProxySelector.getProxyList())) {
-            feedBackClientBuilder.proxySelector(redisProxySelector);
+        if (CollectionUtils.isNotEmpty(freeProxySelector.getProxyList())) {
+            feedBackClientBuilder.proxySelector(freeProxySelector);
         }
 
         return feedBackClientBuilder.build();

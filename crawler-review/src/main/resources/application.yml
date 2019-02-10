@@ -45,14 +45,6 @@ spring:
       test-while-idle: true
       time-between-eviction-runs-millis: 18800
 
-  redis:
-      database: 0   # Redis数据库索引（默认为0）
-      host: 47.106.207.16  # Redis服务器地址
-      port: 6379  # Redis服务器连接端口
-      password:    # Redis服务器连接密码（默认为空）
-      timeout: 5000  # 连接超时时间（毫秒）
-
-
 server:
   port: 9256
 
