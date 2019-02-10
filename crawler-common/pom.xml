@@ -6,7 +6,7 @@
         <groupId>com.crawler</groupId>
         <artifactId>crawler-cloud</artifactId>
         <version>1.0.0</version>
-        <relativePath>../crawler-cloud</relativePath>
+        <relativePath/>
     </parent>
 
     <groupId>com.crawler</groupId>
