@@ -121,11 +121,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <modules>
-        <module>../crawler-common</module>
-        <module>../crawler-review</module>
-    </modules>
-
     <build>
         <plugins>
             <plugin>
