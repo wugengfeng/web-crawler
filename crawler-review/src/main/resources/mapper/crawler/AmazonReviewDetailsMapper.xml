@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.crawler.review.mapper.crawler.AmazonReviewDetailsMapper" >
+  <resultMap id="BaseResultMap" type="com.crawler.review.entity.crawler.review.AmazonReviewDetails" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="reviewer_id" property="reviewerId" jdbcType="INTEGER" />
+    <result column="account_id" property="accountId" jdbcType="INTEGER" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="asin" property="asin" jdbcType="VARCHAR" />
+    <result column="site" property="site" jdbcType="VARCHAR" />
+    <result column="amazon_uuid" property="amazonUuid" jdbcType="VARCHAR" />
+    <result column="review_star" property="reviewStar" jdbcType="INTEGER" />
+    <result column="review_date" property="reviewDate" jdbcType="VARCHAR" />
+    <result column="purchase" property="purchase" jdbcType="BIT" />
+    <result column="standard_date" property="standardDate" jdbcType="TIMESTAMP" />
+    <result column="top_reviewer_level" property="topReviewerLevel" jdbcType="VARCHAR" />
+    <result column="usefull_num" property="usefullNum" jdbcType="INTEGER" />
+    <result column="encrypt_profile_id" property="encryptProfileId" jdbcType="VARCHAR" />
+    <result column="review_title" property="reviewTitle" jdbcType="LONGVARCHAR" />
+    <result column="review_conent" property="reviewConent" jdbcType="LONGVARCHAR" />
+    <result column="reviewer" property="reviewer" jdbcType="LONGVARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

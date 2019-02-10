@@ -1,0 +1,63 @@
+spring:
+  datasource:
+    crawler:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/crawl_review?useUnicode=true&characterEncoding=utf8&useSSL=true&allowMultiQueries=true&autoReconnect=true
+      username: root
+      password: root
+
+      max-active: 300
+      min-idle: 20
+      initial-size: 20
+      max-wait: 10000
+      validation-query: SELECT 1 FROM DUAL
+      test-on-borrow: true
+      test-while-idle: true
+      time-between-eviction-runs-millis: 18800
+
+    mws:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://10.1.1.86:3306/customer_amazon_mws?useUnicode=true&characterEncoding=utf8&useSSL=true&allowMultiQueries=true&autoReconnect=true
+      username: amazon_customer_mws_email
+      password: customerMwsEmail#2018
+
+      max-active: 300
+      min-idle: 20
+      initial-size: 20
+      max-wait: 10000
+      validation-query: SELECT 1 FROM DUAL
+      test-on-borrow: true
+      test-while-idle: true
+      time-between-eviction-runs-millis: 18800
+
+    base:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/amazon_customer_base?useUnicode=true&characterEncoding=utf8&useSSL=true&allowMultiQueries=true&autoReconnect=true
+      username: root
+      password: root
+
+      max-idle: 20
+      min-idle: 20
+      initial-size: 20
+      max-wait: 10000
+      validation-query: SELECT 1 FROM DUAL
+      test-on-borrow: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 18800
+
+  redis:
+      database: 0   # Redis数据库索引（默认为0）
+      host: 47.106.207.16  # Redis服务器地址
+      port: 6379  # Redis服务器连接端口
+      password:    # Redis服务器连接密码（默认为空）
+      timeout: 5000  # 连接超时时间（毫秒）
+
+
+server:
+  port: 9256
+
+# 配置客制化的Mapper
+mapper:
+  mappers:
+   - com.aukey.crawler.common.mapper.Mapper
+   - com.customer.common.mapper.Mapper

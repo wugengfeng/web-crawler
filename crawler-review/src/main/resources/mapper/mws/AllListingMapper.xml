@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.crawler.review.mapper.mws.AllListingMapper" >
+  <resultMap id="BaseResultMap" type="com.crawler.review.entity.mws.AllListing" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="area_id" property="areaId" jdbcType="INTEGER" />
+    <result column="site_id" property="siteId" jdbcType="INTEGER" />
+    <result column="account_id" property="accountId" jdbcType="INTEGER" />
+    <result column="seller_sku" property="sellerSku" jdbcType="VARCHAR" />
+    <result column="asin" property="asin" jdbcType="VARCHAR" />
+    <result column="parent" property="parent" jdbcType="BIT" />
+    <result column="parent_asin" property="parentAsin" jdbcType="VARCHAR" />
+    <result column="listing_id" property="listingId" jdbcType="VARCHAR" />
+    <result column="open_date" property="openDate" jdbcType="TIMESTAMP" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="product_id" property="productId" jdbcType="VARCHAR" />
+    <result column="quantity" property="quantity" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="account_name" property="accountName" jdbcType="VARCHAR" />
+    <result column="site_name" property="siteName" jdbcType="VARCHAR" />
+    <result column="process_id" property="processId" jdbcType="INTEGER" />
+    <result column="item_name" property="itemName" jdbcType="LONGVARCHAR" />
+    <result column="image_url" property="imageUrl" jdbcType="LONGVARCHAR" />
+    <result column="remark" property="remark" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>
